@@ -1,0 +1,49 @@
+name=Basic chocolate banana cake
+authors=Harshi's Kitchen, Pincha Pink Salt
+original sources= https://www.youtube.com/watch?v=IU9MIk5GsVs, https://www.youtube.com/watch?v=_SzfhbAiwYc&t=24s
+version=1.0
+tags=baking,dessert,cake,chocolate
+portions=4
+equipment=oven,baking tin
+
+INGREDIENTS
+
+CAKE
+wheat flour,2,cups
+coco powder,3/4,cup
+baking powder,1.5,table spoon
+baking soda,1.5,tbsp
+salt,1,pinch
+sugar,1,cup
+ripe banana,2,pcs
+egg,2
+olive oil,1/2,cup
+vanilla powder,1,pinch
+milk,1,cup
+
+CHOCOLATE GANACHE 
+dark baking chocolate,200,g
+coconut milk,200,ml
+
+INSTRUCTIONS
+
+CAKE
+1. Pre-heat oven to 180 degrees celcius
+2. Sieve all the dry ingredients into a large bowl
+3. Mix dry ingredients well
+4. Mash bananas in another bowl
+5. Add the eggs
+6. Whisk together for a couple of minutes
+7. Add the olive oil, vanilla extract, and milk
+8. Mix well for a couple of minutes
+9. Pour wet mixture into dry mixture
+10. Mix together slowly, adding milk as needed.
+11. Evenly grease a flat baking tin with butter 
+12. Pour batter into tray
+13. Bake in the oven for 45 minutes at 180 degrees celcius
+
+GANACHE
+1. Chop the chocolate into peanut sized pieces. Too large pieces may not melt
+2. Heat up the coconut milk in a sauce pan until it starts to simmer. Do not let it boil, boiling temperature coconut milk may burn the chocolate
+3. Put the chocolate into a bowl
+4. Pour the coconut milk over the chocolate and mix with a spatula until smooth

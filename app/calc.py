@@ -1,0 +1,93 @@
+import re
+from fractions import Fraction
+''' Calculations for converting between metric and imperial units '''
+
+def second_level_keys(d):
+    o = []
+    for k,v in d.items():
+        o = o + list(v.keys())
+    return o
+
+def convert_value(val,val_unit):
+    val_unit = str(val_unit)
+    if val_unit == 'pcs':
+        return val, val_unit
+    val_unit = val_unit.lower()
+    val_unit = re.sub(r'\s+','',val_unit)
+    if val_unit[-1] == 's':
+        val_unit = val_unit[:-1]
+    if val_unit in spelling.keys():
+        val_unit = spelling[val_unit]
+    if val_unit in ['pcs','tbsp','ts','pinch']:
+        return val, val_unit
+    if val_unit in mass_units:
+        for k,v in mass.items():
+            if val_unit in v.keys():
+                try:
+                    new_val = float(val) /  float(v[val_unit])  
+                except:
+                    new_val = Fraction(val) / float(v[val_unit])
+                return new_val, 'g'
+    if val_unit in vol_units:
+        for k,v in vol.items():
+            if val_unit in v.keys():
+                try:
+                    new_val = float(val) / float(v[val_unit])  
+                except:
+                    new_val = Fraction(val) / float(v[val_unit])
+                return new_val, 'dl'
+    print(f"Could not convert {val} with unit {val_unit}, left unchanged")
+    return val, val_unit 
+
+vol = {
+        "imp":{
+            "floz": 3.3814038638, 
+            "cup": 0.42267548297
+        },
+        "metric":{
+            "dl": 1,
+            "ml": 100,
+            "l": 0.1 
+        },
+        "general":{
+            "tbsp": 6.66666666666,
+            "ts": 20
+        }
+}
+mass = {
+        "imp":{
+            "oz":28.3495,
+        },
+        "metric":{
+            "g": 1,
+            "kg": 0.001
+        },
+        "general":{
+            "pinch": 0.355625 
+        }
+}
+ 
+spelling = {
+        "fluid ounce": "floz",
+        "fl.oz" : "floz",
+        "deciliter": "dl",
+        "decilitre": "dl",
+        "millilitre": "ml",
+        "milliliter": "ml",
+        "coup": "cup",
+        "liter": "l",
+        "litre": "l",
+        "tablespoon": "tbsp",
+        "teaspoon": "ts",
+        "ounce": "oz",
+        "gram": "g",
+        "kilogram": "kg",
+        "pieces": "pcs",
+        "units": "pcs",
+        "stück": "pcs",
+        "kpl": "pcs",
+        "stycken": "pcs"
+}
+
+mass_units = second_level_keys(mass)
+vol_units = second_level_keys(vol)
