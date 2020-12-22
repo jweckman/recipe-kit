@@ -19,12 +19,13 @@ class Recipe:
         self.original_sources = []
         self.version = '1.0'
         self.tags = []
-        self.portions = 1
+        self.servings = 1
         self.equipment=[]
         self.ingredient_instructions = dict()
         self.instructions = dict() 
         self.original_sources= []
         self._process_raw()
+        self.convert()
         
     def _read_file(self, path):
         with open(path, 'r') as fp:
@@ -67,8 +68,8 @@ class Recipe:
                 self.version = l[8:]
             if ll[:5] == 'tags=':
                 self.tags = l[5:].split(',')
-            if ll[:9] == 'portions=':
-                self.portions = int(l[9:])
+            if ll[:9] == 'servings=':
+                self.servings = int(l[9:])
             if ll[:10] == 'equipment=':
                 self.equipment = l[10:].split(',')
 
@@ -84,6 +85,9 @@ class Recipe:
             if current_subsection not in self.ingredient_instructions and current_subsection:
                 self.ingredient_instructions[current_subsection] = []
             if len(l) > 4  and ',' in l:
+                if not current_subsection:
+                    self.ingredient_instructions['main'] = []
+                    current_subsection = 'main'
                 if len(l.split(',')) == 3:
                     self.ingredient_instructions[current_subsection].append(IngredientInstruction(*l.split(',')))
                 if len(l.split(',')) == 2:
@@ -106,26 +110,36 @@ class Recipe:
                         self.instructions[current_subsection] = []
                     self.instructions[current_subsection].append(row)
                 else:
+                    self.instructions['main'] = []
+                    current_subsection = 'main'
                     self.instructions['main'].append(row)
 
     def convert(self):
         o = {k: [] for k in self.ingredient_instructions.keys()}
         for subsection, iis in self.ingredient_instructions.items():
             for ii in iis:
-                print(ii)
                 new_amount, new_unit = convert_value(ii.amount, ii.unit)
                 o[subsection].append(IngredientInstruction(ii[0],new_amount,new_unit))
         self.ingredient_instructions = o
 
-    def _print_ingredient_instruction(self,ii):
-        inlen = len(ii.ingredient)
-        max_tab_count = 3 
-        tab_sub = round(inlen / 10)
-        tab_string = '\t' * (max_tab_count - tab_sub)
+    def rescale(self, new_servings):
+        new_servings = float(new_servings)
+        o = {k: [] for k in self.ingredient_instructions.keys()}
+        for subsection, iis in self.ingredient_instructions.items():
+            for ii in iis:
+                single_serving_amount = ii.amount / self.servings
+                new_amount = single_serving_amount * new_servings 
+                o[subsection].append(IngredientInstruction(ii.ingredient,new_amount,ii.unit))
+        self.servings = new_servings
+        self.ingredient_instructions = o
+
+    def _print_ingredient_instruction(self,ii,longest_ingredient_length):
+        space_count = longest_ingredient_length - len(ii.ingredient)
+        spaces = ' ' * space_count + ' '
         if ii.amount.is_integer():
-            print(f"{ii.ingredient}{tab_string}{int(ii.amount)}\t{ii.unit}")
+            print(f"{ii.ingredient}{spaces}{int(ii.amount)}\t{ii.unit}")
         else:
-            print(f"{ii.ingredient}{tab_string}{round(ii.amount,1)}\t{ii.unit}")
+            print(f"{ii.ingredient}{spaces}{round(ii.amount,1)}\t{ii.unit}")
 
     def pretty_print(self):
         if not self.name or not self.ingredient_instructions:
@@ -136,16 +150,21 @@ class Recipe:
         print(f"authors: {', '.join(self.authors)}")
         print(f"original sources: {', '.join(self.original_sources)}")
         print(f"tags: {', '.join(self.tags)}")
+
         # Ingredients
         print("\n---------------INGREDIENTS---------------\n")
         for ic, iis in self.ingredient_instructions.items():
-            print(f"\n----------{ic.upper()}----------\n")
+            if ic != 'main':
+                print(f"\n----------{ic.upper()}----------\n")
+            longest_ingredient_length = len(max(iis, key=lambda k: len(k.ingredient)).ingredient) 
             for ii in iis:
-                self._print_ingredient_instruction(ii)
+                self._print_ingredient_instruction(ii, longest_ingredient_length)
 
+        # Instructions
         print('\n---------------INSTRUCTIONS---------------\n')
         for category, instructions in self.instructions.items():
-            print('\n' + category.upper() + '\n')
+            if category != 'main':
+                print('\n' + category.upper() + '\n')
             for row in instructions:
                 numlen = len(row.split('.')[0])
                 for i,l in enumerate(textwrap.wrap(row, 100)):
@@ -156,10 +175,11 @@ class Recipe:
                         print('\t' + spaces + l)
         
     def __str__(self):
-        return f"{self.name}\n{self.authors}\n{self.version}\n{self.tags}\n{self.portions},\n{self.ingredient_instructions}"
+        return f"{self.name}\n{self.authors}\n{self.version}\n{self.tags}\n{self.servings},\n{self.ingredient_instructions}"
 
 if __name__ == '__main__':
-    sample = Path().cwd().parent / 'sample_recipe.txt'
+    sample = Path().cwd().parent / 'sample_recipe2.txt'
     rp = Recipe(sample)
     rp.convert()
+    rp.rescale(10)
     rp.pretty_print()

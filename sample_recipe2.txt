@@ -1,0 +1,33 @@
+name=Greek Chicken Skewers
+authors=Alexis Rimes
+original sources=https://www.allrecipes.com/recipe/273864/greek-chicken-skewers/
+version=1.0
+tags=chicken,main,greek
+servings=4
+equipment=oven,resealable plastic bag,fridge
+
+INGREDIENTS
+lemon juice,1/4,cup 
+wok oil,1/4,cup 
+red wine vinegar,1/8,cup
+onion flakes,1,tablespoon
+minced garlic,1,tablespoon 
+zested lemon,1
+Greek seasoning,1,teaspoon 
+poultry seasoning,1,teaspoon 
+dried oregano,1,teaspoon 
+ground black pepper,1,teaspoon 
+dried thyme,1/2,teaspoon 
+skinless boneless chicken breasts,3
+bamboo skewers,8 
+
+INSTRUCTIONS
+1. Whisk lemon juice, oil, vinegar, onion flakes, garlic, lemon zest, Greek seasoning, poultry seasoning, oregano, pepper, and thyme together in a bowl and pour into a resealable plastic bag.
+
+2.Add chicken, coat with the marinade, squeeze out excess air, and seal the bag. Marinate in the refrigerator for at least 2 hours.
+
+3.Preheat the oven to 350 degrees F (175 degrees C).
+
+4.Remove chicken from the marinade and shake off excess; thread onto skewers. Discard the remaining marinade. Place the skewers on a baking sheet.
+
+5.Roast in the preheated oven until golden brown, about 20 minutes.

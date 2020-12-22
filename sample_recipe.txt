@@ -3,7 +3,7 @@ authors=Harshi's Kitchen, Pincha Pink Salt
 original sources= https://www.youtube.com/watch?v=IU9MIk5GsVs, https://www.youtube.com/watch?v=_SzfhbAiwYc&t=24s
 version=1.0
 tags=baking,dessert,cake,chocolate
-portions=4
+servings=4
 equipment=oven,baking tin
 
 INGREDIENTS

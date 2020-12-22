@@ -19,7 +19,6 @@ def string_to_number(s):
             print(f"Could not turn {s} into a number, please correct your recipe")
             sys.exit()
 
-
 def convert_value(val,val_unit):
     val_unit = str(val_unit)
     if val_unit == 'pcs':
