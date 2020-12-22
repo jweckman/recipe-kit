@@ -1,6 +1,11 @@
 from pathlib import Path
 from collections import namedtuple
-from app.calc import convert_value
+import textwrap
+import sys
+if __name__ != '__main__':
+    from app.calc import convert_value
+else:
+    from calc import convert_value
 
 IngredientInstruction = namedtuple('IngredientInstruction', 'ingredient, amount, unit')
 
@@ -8,9 +13,7 @@ class Recipe:
     def __init__(self, path, default_conversion='metric'):
         self.path = path
         self.default_conversion = default_conversion
-        print(path)
         self.recipe_raw = self._read_file(path) 
-        self.recipe_parsed = [] 
         self.name = None
         self.authors = []
         self.original_sources = []
@@ -19,6 +22,7 @@ class Recipe:
         self.portions = 1
         self.equipment=[]
         self.ingredient_instructions = dict()
+        self.instructions = dict() 
         self.original_sources= []
         self._process_raw()
         
@@ -84,16 +88,72 @@ class Recipe:
                     self.ingredient_instructions[current_subsection].append(IngredientInstruction(*l.split(',')))
                 if len(l.split(',')) == 2:
                     self.ingredient_instructions[current_subsection].append(IngredientInstruction(*l.split(','), 'pcs'))
-                    print(l.split(','),'pcs')
+
+        current_subsection = None
+
+        for row in self.recipe_raw[instructions_start:]:
+            row = row.replace('\n', '')
+            if row.strip().isupper():
+               current_subsection = row.strip().lower() 
+            if '.' not in row:
+                continue
+            if row.split('.')[0].strip().isnumeric():
+                row_numbers, rest = row.split('.', 1)
+                row_numbers = row_numbers + '.\t'
+                row = row_numbers + rest
+                if current_subsection:
+                    if current_subsection not in self.instructions.keys():
+                        self.instructions[current_subsection] = []
+                    self.instructions[current_subsection].append(row)
+                else:
+                    self.instructions['main'].append(row)
 
     def convert(self):
-        o = []
+        o = {k: [] for k in self.ingredient_instructions.keys()}
         for subsection, iis in self.ingredient_instructions.items():
             for ii in iis:
                 print(ii)
                 new_amount, new_unit = convert_value(ii.amount, ii.unit)
-                o.append(IngredientInstruction(ii[0],new_amount,new_unit))
+                o[subsection].append(IngredientInstruction(ii[0],new_amount,new_unit))
         self.ingredient_instructions = o
+
+    def _print_ingredient_instruction(self,ii):
+        inlen = len(ii.ingredient)
+        max_tab_count = 3 
+        tab_sub = round(inlen / 10)
+        tab_string = '\t' * (max_tab_count - tab_sub)
+        if ii.amount.is_integer():
+            print(f"{ii.ingredient}{tab_string}{int(ii.amount)}\t{ii.unit}")
+        else:
+            print(f"{ii.ingredient}{tab_string}{round(ii.amount,1)}\t{ii.unit}")
+
+    def pretty_print(self):
+        if not self.name or not self.ingredient_instructions:
+            print('Read file does not have a name and ingredient instruction, aborting')
+            sys.exit()
+        print(f"---------------{self.name}---------------")
+        print(f"version: {self.version}")
+        print(f"authors: {', '.join(self.authors)}")
+        print(f"original sources: {', '.join(self.original_sources)}")
+        print(f"tags: {', '.join(self.tags)}")
+        # Ingredients
+        print("\n---------------INGREDIENTS---------------\n")
+        for ic, iis in self.ingredient_instructions.items():
+            print(f"\n----------{ic.upper()}----------\n")
+            for ii in iis:
+                self._print_ingredient_instruction(ii)
+
+        print('\n---------------INSTRUCTIONS---------------\n')
+        for category, instructions in self.instructions.items():
+            print('\n' + category.upper() + '\n')
+            for row in instructions:
+                numlen = len(row.split('.')[0])
+                for i,l in enumerate(textwrap.wrap(row, 100)):
+                    if i == 0:
+                        print(l)
+                    else:
+                        spaces = ' ' * numlen
+                        print('\t' + spaces + l)
         
     def __str__(self):
         return f"{self.name}\n{self.authors}\n{self.version}\n{self.tags}\n{self.portions},\n{self.ingredient_instructions}"
@@ -101,4 +161,5 @@ class Recipe:
 if __name__ == '__main__':
     sample = Path().cwd().parent / 'sample_recipe.txt'
     rp = Recipe(sample)
-    print(str(rp))
+    rp.convert()
+    rp.pretty_print()

@@ -1,5 +1,6 @@
 import re
 from fractions import Fraction
+import sys
 ''' Calculations for converting between metric and imperial units '''
 
 def second_level_keys(d):
@@ -8,9 +9,21 @@ def second_level_keys(d):
         o = o + list(v.keys())
     return o
 
+def string_to_number(s):
+    try:
+        return float(s)
+    except:
+        try:
+            return float(Fraction(s))
+        except:
+            print(f"Could not turn {s} into a number, please correct your recipe")
+            sys.exit()
+
+
 def convert_value(val,val_unit):
     val_unit = str(val_unit)
     if val_unit == 'pcs':
+        val = string_to_number(val)
         return val, val_unit
     val_unit = val_unit.lower()
     val_unit = re.sub(r'\s+','',val_unit)
@@ -19,22 +32,19 @@ def convert_value(val,val_unit):
     if val_unit in spelling.keys():
         val_unit = spelling[val_unit]
     if val_unit in ['pcs','tbsp','ts','pinch']:
+        val = string_to_number(val)
         return val, val_unit
     if val_unit in mass_units:
         for k,v in mass.items():
             if val_unit in v.keys():
-                try:
-                    new_val = float(val) /  float(v[val_unit])  
-                except:
-                    new_val = Fraction(val) / float(v[val_unit])
+                new_val = string_to_number(val)
+                new_val = new_val /  v[val_unit]  
                 return new_val, 'g'
     if val_unit in vol_units:
         for k,v in vol.items():
             if val_unit in v.keys():
-                try:
-                    new_val = float(val) / float(v[val_unit])  
-                except:
-                    new_val = Fraction(val) / float(v[val_unit])
+                new_val = string_to_number(val)
+                new_val = new_val /  v[val_unit]  
                 return new_val, 'dl'
     print(f"Could not convert {val} with unit {val_unit}, left unchanged")
     return val, val_unit 
