@@ -1,8 +1,9 @@
-from app.recipe import Recipe
 from pathlib import Path
 import sys
+from app.recipe import Recipe
+from app.url_parser import UrlParser
 
-if __name__ == '__main__':
+def read_file():
     print(sys.argv)
     if len(sys.argv) == 1:
         f = Path().cwd() / 'sample_recipe.txt'
@@ -19,3 +20,13 @@ if __name__ == '__main__':
         print('Too many arguments specified')
         print('Please specify file path as first argument and serving count as second argument')
     r.pretty_print()
+
+def read_url():
+    url = 'https://www.allrecipes.com/recipe/279934/air-fryer-apricot-glazed-chicken-breasts/'
+    up = UrlParser(url)
+    up.extract_recipe()
+
+
+if __name__ == '__main__':
+    read_url()
+

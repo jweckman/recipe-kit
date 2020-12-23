@@ -10,6 +10,7 @@ else:
 IngredientInstruction = namedtuple('IngredientInstruction', 'ingredient, amount, unit')
 
 class Recipe:
+    '''Class for reading in, storing, and printing recipes to the terminal'''
     def __init__(self, path, default_conversion='metric'):
         self.path = path
         self.default_conversion = default_conversion
@@ -28,8 +29,9 @@ class Recipe:
         self.convert()
         
     def _read_file(self, path):
+        '''Read raw recipe .txt as list of strings'''
         with open(path, 'r') as fp:
-            return fp.readlines()
+            return fp.read().splitlines()
 
     def _get_raw_sections(self):
         ''' Find sections and their names in raw .txt'''
@@ -53,10 +55,11 @@ class Recipe:
 
     def _process_raw(self):
         ''' Find raw .txt data and populate instance attributes'''
+        # Get the sections from the raw .txt document
         ingredients_start, instructions_start, subsections = self._get_raw_sections()
 
+        # Get initial attributes
         for l in self.recipe_raw[:ingredients_start-1]:
-            l = l.replace('\n', '')
             ll = l.lower()
             if ll[:5] == 'name=':
                 self.name = l[5:]
@@ -72,11 +75,11 @@ class Recipe:
                 self.servings = int(l[9:])
             if ll[:10] == 'equipment=':
                 self.equipment = l[10:].split(',')
-
+        
+        # Get ingredient instructions as named tuples and add to dictionary with lables as keys
         current_subsection = None
 
         for i,l in enumerate(self.recipe_raw[ingredients_start:instructions_start]):
-            l = l.replace('\n', '')
             i = i+ingredients_start
             if i in subsections['ingredients'].keys():
                 current_subsection = subsections['ingredients'][i]
@@ -93,10 +96,10 @@ class Recipe:
                 if len(l.split(',')) == 2:
                     self.ingredient_instructions[current_subsection].append(IngredientInstruction(*l.split(','), 'pcs'))
 
+        # Get instructions for making the recipe and add as list of string under lables as keys
         current_subsection = None
 
         for row in self.recipe_raw[instructions_start:]:
-            row = row.replace('\n', '')
             if row.strip().isupper():
                current_subsection = row.strip().lower() 
             if '.' not in row:
@@ -115,6 +118,7 @@ class Recipe:
                     self.instructions['main'].append(row)
 
     def convert(self):
+        '''Convert from imperial to metric units'''
         o = {k: [] for k in self.ingredient_instructions.keys()}
         for subsection, iis in self.ingredient_instructions.items():
             for ii in iis:
@@ -123,6 +127,7 @@ class Recipe:
         self.ingredient_instructions = o
 
     def rescale(self, new_servings):
+        '''Rescale amount of portions'''
         new_servings = float(new_servings)
         o = {k: [] for k in self.ingredient_instructions.keys()}
         for subsection, iis in self.ingredient_instructions.items():
@@ -134,6 +139,7 @@ class Recipe:
         self.ingredient_instructions = o
 
     def _print_ingredient_instruction(self,ii,longest_ingredient_length):
+        '''Helper function for pretty_print'''
         space_count = longest_ingredient_length - len(ii.ingredient)
         spaces = ' ' * space_count + ' '
         if ii.amount.is_integer():
@@ -142,6 +148,7 @@ class Recipe:
             print(f"{ii.ingredient}{spaces}{round(ii.amount,1)}\t{ii.unit}")
 
     def pretty_print(self):
+        '''Pretty prints the recipe in the terminal'''
         if not self.name or not self.ingredient_instructions:
             print('Read file does not have a name and ingredient instruction, aborting')
             sys.exit()
