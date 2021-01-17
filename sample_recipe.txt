@@ -9,21 +9,21 @@ equipment=oven,baking tin
 INGREDIENTS
 
 CAKE
-wheat flour,2,cups
-coco powder,3/4,cup
-baking powder,1.5,table spoon
-baking soda,1.5,tbsp
-salt,1,pinch
-sugar,1,cup
-ripe banana,2,pcs
-egg,2
-olive oil,1/2,cup
-vanilla powder,1,pinch
-milk,1,cup
+2,cups,wheat flour
+3/4,cup,coco powder
+1.5,table spoon,baking powder
+1.5,tbsp,baking soda
+1,pinch,salt
+1,cup,sugar
+2,pcs,ripe banana
+2,egg
+1/2,cup,olive oil
+1,pinch,vanilla powder
+1,cup,milk
 
 CHOCOLATE GANACHE 
-dark baking chocolate,200,g
-coconut milk,200,ml
+200,g,dark baking chocolate
+200,ml,coconut milk
 
 INSTRUCTIONS
 

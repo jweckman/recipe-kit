@@ -26,7 +26,7 @@ def convert_value(val,val_unit):
         return val, val_unit
     val_unit = val_unit.lower()
     val_unit = re.sub(r'\s+','',val_unit)
-    if val_unit[-1] == 's':
+    if val_unit[-1] == 's' and val_unit != 'ts':
         val_unit = val_unit[:-1]
     if val_unit in spelling.keys():
         val_unit = spelling[val_unit]
@@ -83,6 +83,9 @@ spelling = {
         "decilitre": "dl",
         "millilitre": "ml",
         "milliliter": "ml",
+        "cups": "cup",
+        "cup": "cup",
+        "coups": "cup",
         "coup": "cup",
         "liter": "l",
         "litre": "l",
@@ -95,7 +98,9 @@ spelling = {
         "units": "pcs",
         "stück": "pcs",
         "kpl": "pcs",
-        "stycken": "pcs"
+        "stycken": "pcs",
+        "pinches": "pinch",
+        "pinch": "pinch"
 }
 
 mass_units = second_level_keys(mass)

@@ -23,10 +23,18 @@ def read_file():
 
 def read_url():
     url = 'https://www.allrecipes.com/recipe/279934/air-fryer-apricot-glazed-chicken-breasts/'
-    up = UrlParser(url)
-    up.extract_recipe()
-
+    url = 'https://www.allrecipes.com/recipe/20185/virginas-tuna-salad/'
+    url = 'https://www.allrecipes.com/recipe/7934/blueberry-cheesecake/'
+    url = 'https://www.allrecipes.com/recipe/15246/yummy-fruit-pizza/'
+    url = 'https://www.allrecipes.com/recipe/218586/walnut-banana-bread-pudding/'
+    up = UrlParser()
+    #recipe2 = Recipe(path = Path().cwd() / 'sample_recipe.txt')
+    #recipe2.pretty_print()
+    recipe = up.extract_recipe(url)
+    recipe.pretty_print()
+    recipe.write_txt()
 
 if __name__ == '__main__':
     read_url()
+    #read_file()
 
