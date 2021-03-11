@@ -1,6 +1,6 @@
 # recipe-kit
 (WIP)
-Cooking kit for standardizing recipes found online and converting them to an international standard format.
+Cooking kit for standardizing recipes found online and converting them to an international standard format. Supports reading from certain websites and reading from/to the standard .txt based format.
 
 ## Benefits
 * unified way to store recipes
