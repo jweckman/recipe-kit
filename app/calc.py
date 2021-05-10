@@ -3,9 +3,10 @@ from fractions import Fraction
 import sys
 ''' Calculations for converting between metric and imperial units '''
 
+
 def second_level_keys(d):
     o = []
-    for k,v in d.items():
+    for v in d.values():
         o = o + list(v.keys())
     return o
 
@@ -19,7 +20,10 @@ def string_to_number(s):
             print(f"Could not turn {s} into a number, please correct your recipe")
             sys.exit()
 
-def convert_value(val,val_unit):
+def convert_value(val, val_unit: str):
+    ''' Converts a given value from imperial to metric in the cooking context.
+        Leaves value and unit unchanged if no conversion could be applied,
+        printing that conversion was unsuccessful'''
     val_unit = str(val_unit)
     if val_unit == 'pcs':
         val = string_to_number(val)
@@ -34,18 +38,19 @@ def convert_value(val,val_unit):
         val = string_to_number(val)
         return val, val_unit
     if val_unit in mass_units:
-        for k,v in mass.items():
+        for v in mass.values():
             if val_unit in v.keys():
                 new_val = string_to_number(val)
                 new_val = new_val /  v[val_unit]  
                 return new_val, 'g'
     if val_unit in vol_units:
-        for k,v in vol.items():
+        for v in vol.values():
             if val_unit in v.keys():
                 new_val = string_to_number(val)
                 new_val = new_val /  v[val_unit]  
                 return new_val, 'dl'
     print(f"Could not convert {val} with unit {val_unit}, left unchanged")
+
     return val, val_unit 
 
 vol = {
