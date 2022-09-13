@@ -62,7 +62,7 @@ class Recipe:
                 try:
                     new_path = Path(input("No file has been specified for this recipe yet. Please enter where you wish to save the file:\nE.g: /home/user/recipes/my_recipe.txt\n"))
                 except:
-                    print(f"Path {new_path} invalid, please add different path\n")
+                    print(f"Path invalid, please add different path\n")
                     continue
                 break
             self.path = new_path 

@@ -11,7 +11,7 @@ def read_file():
         print('This is a sample recipe. Please specify file path as first argument and serving amount as second argument')
     elif len(sys.argv) == 2:
         r = Recipe(sys.argv[1])
-        print('TIP: To change sercving amount, add it as the second argument')
+        print('TIP: To change serving amount, add it as the second argument')
     elif len(sys.argv) == 3:
         print('RAN')
         r = Recipe(sys.argv[1])
@@ -35,6 +35,6 @@ def read_url():
     recipe.write_txt()
 
 if __name__ == '__main__':
-    read_url()
-    #read_file()
+    # read_url()
+    read_file()
 

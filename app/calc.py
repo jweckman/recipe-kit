@@ -30,8 +30,6 @@ def convert_value(val, val_unit: str):
         return val, val_unit
     val_unit = val_unit.lower()
     val_unit = re.sub(r'\s+','',val_unit)
-    if val_unit[-1] == 's' and val_unit != 'ts':
-        val_unit = val_unit[:-1]
     if val_unit in spelling.keys():
         val_unit = spelling[val_unit]
     if val_unit in ['pcs','tbsp','ts','pinch']:
@@ -41,71 +39,104 @@ def convert_value(val, val_unit: str):
         for v in mass.values():
             if val_unit in v.keys():
                 new_val = string_to_number(val)
-                new_val = new_val /  v[val_unit]  
+                new_val = new_val *  v[val_unit]
                 return new_val, 'g'
     if val_unit in vol_units:
         for v in vol.values():
             if val_unit in v.keys():
                 new_val = string_to_number(val)
-                new_val = new_val /  v[val_unit]  
+                new_val = new_val /  v[val_unit]
                 return new_val, 'dl'
     print(f"Could not convert {val} with unit {val_unit}, left unchanged")
 
     return val, val_unit 
 
+# How many X does it take to get one deciliter?
 vol = {
         "imp":{
-            "floz": 3.3814038638, 
-            "cup": 0.42267548297
+            "floz": 3.3814038638,
+            "cup": 0.42267548297,
         },
         "metric":{
             "dl": 1,
             "ml": 100,
-            "l": 0.1 
+            "l": 0.1
         },
         "general":{
             "tbsp": 6.66666666666,
             "ts": 20
         }
 }
+# How many grams is one X?
 mass = {
         "imp":{
-            "oz":28.3495,
+            "oz": 28.3495,
+            "lbs": 453.592,
         },
         "metric":{
             "g": 1,
-            "kg": 0.001
+            "kg": 1000,
         },
         "general":{
-            "pinch": 0.355625 
+            "pinch": 0.355625
         }
 }
  
 spelling = {
+        # English
         "fluid ounce": "floz",
+        "fluid ounces": "floz",
         "fl.oz" : "floz",
         "deciliter": "dl",
+        "deciliters": "dl",
         "decilitre": "dl",
+        "decilitres": "dl",
         "millilitre": "ml",
+        "millilitres": "ml",
         "milliliter": "ml",
-        "cups": "cup",
+        "milliliters": "ml",
         "cup": "cup",
-        "coups": "cup",
+        "cups": "cup",
         "coup": "cup",
+        "coups": "cup",
         "liter": "l",
+        "liters": "l",
         "litre": "l",
+        "litres": "l",
         "tablespoon": "tbsp",
+        "tablespoons": "tbsp",
         "teaspoon": "ts",
+        "teaspoons": "ts",
         "ounce": "oz",
+        "ounces": "oz",
         "gram": "g",
+        "grams": "g",
         "kilogram": "kg",
+        "kilograms": "kg",
+        "piece": "pcs",
         "pieces": "pcs",
+        "unit": "pcs",
         "units": "pcs",
-        "stück": "pcs",
-        "kpl": "pcs",
-        "stycken": "pcs",
         "pinches": "pinch",
-        "pinch": "pinch"
+        "pinch": "pinch",
+        "pound": "lbs",
+        "pounds": "lbs",
+        "tsp": "ts",
+
+        # German
+        "prise": "pinch",
+        "el": "tbsp",
+        "würfel": "pcs",
+        "packung": "pcs",
+        "packungen": "pcs",
+        "stück": "pcs",
+        "stücke": "pcs",
+
+        # Swedish
+        "stycken": "pcs",
+
+        # Finnish
+        "kpl": "pcs",
 }
 
 mass_units = second_level_keys(mass)
