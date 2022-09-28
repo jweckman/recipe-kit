@@ -1,0 +1,23 @@
+name=Carrot orange porridge
+authors=Sonnentor
+original sources=sonnentor.de/rezepte
+version=1.0
+tags=dessert
+servings=1
+equipment=pot
+
+INGREDIENTS
+
+100,ml,water
+150,ml,orange juice
+7,tbsp,oat flakes
+2,pcs,carrot
+1,tbsp,Sonnentor Wieder gut Irma Immun Gewuerzmischung
+1,tsp,cut coriander green
+
+INSTRUCTIONS
+
+1. Finely grate carrots
+2. Cook grated carrots with water and orange juice in a pot.
+3. Add spice mixture and oats, let it simmer until the porridge has thickened.
+4. Garnish with coriander green.

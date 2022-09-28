@@ -1,0 +1,29 @@
+name=Carrot orange porridge
+authors=Sonnentor
+original sources=sonnentor.de/rezepte
+version=1.0
+tags=lunch,dinner
+servings=2
+equipment=pot
+
+INGREDIENTS
+
+200,g,full-grain pasta e.g. spirelli
+200,g,kale
+100,g,sunflower seeds
+100,g,grana padano
+2,tbsp,lemon juice
+200,g,olive oil
+2,tsp,Sonnentor Rudi Ruhe Gewuerzmischung
+1,pinch,salt
+1,pinch,pepper
+2,pcs,mid-sized fennel
+
+INSTRUCTIONS
+
+1. Cut cale into stripes, blanche and put it in a blender.
+2. Roast sunflower seeds on medium heat until golden brown and add to blender
+3. To blender, add lemon juice, olive oil, spice mixture, salt, pepper and mix until it's got a pesto texture.
+4. Clean fennel, cut in half and remove stemm. Cut into 1/8th long stripes, roast in pan until golden brown.
+5. Cook noodles until al dente.
+6, Mix noodles with pesto and garnish with fennel and grana padano. Enjoy.

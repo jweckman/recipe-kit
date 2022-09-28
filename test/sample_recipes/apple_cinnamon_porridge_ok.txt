@@ -1,0 +1,27 @@
+name=Apple and cinnamon porridge
+authors=deliciousmagazine.co.uk
+original sources=https://www.deliciousmagazine.co.uk/recipes/apple-and-cinnamon-porridge/
+version=1.0
+tags=breakfast
+servings=4
+equipment=saucepan, bowl
+
+INGREDIENTS
+
+200,g,large porridge oats
+2, pcs, peeled cored roughly chopped apples
+0.5,tbsp,coconut oil
+1,tsp,cinnamon
+570,ml,milk
+1,pcs,honey or maple syrup or brown sugar
+
+
+INSTRUCTIONS
+
+CAKE
+1. Put the oats in a medium bowl with 300ml cold water and set aside to soak. 
+2. Meanwhile, put the apples, coconut oil and 3 tbsp cold water in a large saucepan, cover with a lid and cook for 10 minutes over a medium heat until the apples have softened.
+3. When the apples are soft, pour the soaked oats and soaking liquid into the pan, then stir in the cinnamon and milk. 
+4. Turn the heat to low-medium and gently simmer the porridge for 15 minutes, stirring with a wooden spoon regularly to stop the oats from sticking and clumping together.
+5. When the porridge has a thick but stirrable consistency, take the pan off the heat and leave to stand for a minute before serving. 
+6. Add a drizzle of honey, golden syrup or brown sugar to sweeten, if you like.

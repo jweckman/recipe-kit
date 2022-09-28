@@ -12,10 +12,10 @@ IngredientInstruction = namedtuple('IngredientInstruction', 'amount, unit, ingre
 
 class Recipe:
     '''Class for reading in, storing, and printing recipes to the terminal'''
-    def __init__(self, 
+    def __init__(self,
                     path=None,
-                    default_conversion = 'metric', 
-                    recipe_raw = None, 
+                    default_conversion = 'metric',
+                    recipe_raw = None,
                     name = None,
                     authors = [],
                     original_sources = [],
@@ -27,28 +27,28 @@ class Recipe:
                     instructions = dict(),
                     ):
         self.default_conversion = default_conversion
-        self.name = name 
-        self.authors = authors 
-        self.original_sources = original_sources 
-        self.version = version 
-        self.tags = tags 
-        self.servings = servings 
+        self.name = name
+        self.authors = authors
+        self.original_sources = original_sources
+        self.version = version
+        self.tags = tags
+        self.servings = servings
         self.equipment = equipment
-        self.ingredient_instructions = ingredient_instructions 
-        self.instructions = instructions 
+        self.ingredient_instructions = ingredient_instructions
+        self.instructions = instructions
         self.path = path
         if path:
-            self.recipe_raw = self.read_txt(path) 
+            self.recipe_raw = self.read_txt(path)
             self._process_txt()
         self.convert()
         self.change_ingredient_illegal_chars()
-        
+
     def change_ingredient_illegal_chars(self):
         cp = copy(self.ingredient_instructions)
         for category,iis in cp.items():
             for i, ii in enumerate(iis):
                 changed = ii.ingredient.replace(',', ' -')
-                self.ingredient_instructions[category][i] = IngredientInstruction(ii.amount, ii.unit, changed) 
+                self.ingredient_instructions[category][i] = IngredientInstruction(ii.amount, ii.unit, changed)
 
     def read_txt(self, path):
         '''Read raw recipe .txt as list of strings'''
@@ -65,8 +65,7 @@ class Recipe:
                     print(f"Path invalid, please add different path\n")
                     continue
                 break
-            self.path = new_path 
-        
+            self.path = new_path
         # Gather data into a single list
         lines = []
 
@@ -137,7 +136,7 @@ class Recipe:
                 self.servings = int(l[9:])
             if ll[:10] == 'equipment=' and len(ll) > 10:
                 self.equipment = l[10:].split(',')
-        
+
         # Get ingredient instructions as named tuples and add to dictionary with lables as keys
         current_subsection = None
 

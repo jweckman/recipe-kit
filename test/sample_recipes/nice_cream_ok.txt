@@ -1,0 +1,23 @@
+name=Nice cream latte
+authors=Sonnentor
+original sources=
+version=1.0
+tags=dessert
+servings=3
+equipment=freezer,mixer
+
+INGREDIENTS
+
+6,pcs,banana
+3,tbsp,maple syrup
+1,tsp,kurkuma latte powder
+1,tsp,cardamon latte powder
+1,tsp,beetroot latte powder
+1,pcs,fresh fruit[optional]
+1,pcs,rosted coconut flakes[optional]
+
+INSTRUCTIONS
+
+1. Peel bananas, cut into pieces and put to freezer for 3 hours
+2. Put bananas and maple syrup into mixer and mix until smooth
+3. Spread cream into 3 bowls, add latte powder to each bowl. Enjoy.

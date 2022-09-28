@@ -1,0 +1,32 @@
+name=Kartoffelsalat
+authors=Sonja Meissner
+servings=4
+version=1.0
+original sources=
+tags=potato, salad, german
+equipment=stove
+
+INGREDIENTS
+
+1.5,kg,Kartoffeln
+1,pcs,Rote Zwiebel
+1,Packung,Feldsalat
+1,Prise,Pfeffer
+1.33,EL,Salz
+1.33,EL,Zucker
+1,Würfel,Hühnerbrühe
+2.5,EL,Essig
+20,ml,Sonnenblumenöl
+
+INSTRUCTIONS
+1. Kartoffeln in der Schale kochen (am besten festkochende, NICHT mehlige), Menge nach Bedarf
+2. nach dem Kochen etwas abkühlen lassen und dann pellen und in Scheiben in die Schüssel schneiden
+3. kleine Zwiebel sehr fein würfeln und oben auf geben 
+4. große Tasse (Pott) nehmen und mit heißem Wasser einen Sud bereiten aus 1/TL Hühnerbrühe, je 1 leicht gehäuften Eßlöffel Zucker und Salz, sowie 2-3 Eßl.? Essig (Essig muss man durchschmecken, er soll aber nicht zu heftig sein)
+5. heißen Sud über die gewürfelten Zwiebeln gießen, Pfeffer aus der Mühle frisch drauf mahlen, dann einen großzügigen Schwung geschmacksneutrales Öl darübergeben. Der Salat soll nicht in Öl schwimmen, aber man muss es wiederfinden
+6. gut durchmischen und alles ein paar Stunden ziehen lassen
+7. abschmecken: alles sollte man etwas durchschmecken ausser der Brühe, die ist nur zum Abrunden
+8. vor dem Servieren den gewaschenen und abgetropften Feldsalat hinzufügen und evtl. die mageren Schinkenwürfel
+Guten Appetit!
+9. das Geheimnis ist die Ausgewogenheit der Gewürze, wenn die Kartoffeln noch nicht durchgezogen sind, muss man alles kräftig rausschmecken, auch das Öl. Die Kartoffeln nehmen eine Menge davon auf und ziehen durch, am besten ist daher den Salat einen halben tag oder einen guten halben Tag ziuehen zu lassen
+10. man kann auch nur den Fekdsalat unterheben und ein Schälchen mit Croutons und Schinkenwürfeln zum selber nehmen dazustellen. Auf jeden Fall bleibt der Salat bei der Flüssigkeitsmenge schön saftig

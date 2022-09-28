@@ -1,0 +1,29 @@
+name=Chicken Marinade
+authors=Melissa Stadler
+original sources=https://www.modernhoney.com/the-best-chicken-marinade-recipe/
+version=1.0
+tags=marinade,chicken
+servings=6
+equipment=bowl,plastic bag
+
+INGREDIENTS
+
+2,lbs,chicken
+0.5,cups,olive oil
+3,tbsp,lemon juice
+3,tbsp,soy sauce
+3,tbsp,balsamic vinegar
+0.25,cup,sugar
+3,pcs,garlic cloves
+1.5,tsp,salt
+1,tsp,pepper
+5,g,parsley
+
+INSTRUCTIONS
+
+1. In a bowl, stir together oil, lemon juice, soy sauce, balsamic vinegar, brown sugar, Worcestershire sauce, garlic, salt, and pepper.
+2. Pierce chicken breasts with a fork all over. Place in a large Ziploc bag. Pour marinade over chicken.
+3. Let marinate for at least 30 minutes. 4 - 5 hours is ideal.
+4. Preheat grill to medium heat. Brush grill with oil to prevent sticking.
+5. Place chicken on the grill. Cook for approximately 5 - 6 minutes per side, depending on the thickness of chicken. The internal temperature of the chicken should reach 75 degrees celcius.
+6. Remove chicken from grill and let rest for 5 minutes.

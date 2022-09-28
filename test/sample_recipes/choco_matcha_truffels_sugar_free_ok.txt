@@ -1,0 +1,19 @@
+name=Choco Matcha Truffels
+authors=
+original sources=
+version=1.0
+tags=dessert
+servings=12
+equipment=pot
+
+INGREDIENTS
+
+250,ml,rich coconut milk
+1,tbsp,coconut oil
+200,g,erithry
+1,tbsp,matcha powder
+60,g,cocoa powder
+50,g,coconut flakes
+
+INSTRUCTIONS
+

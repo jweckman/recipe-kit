@@ -21,7 +21,7 @@ CAKE
 1,pinch,vanilla powder
 1,cup,milk
 
-CHOCOLATE GANACHE 
+CHOCOLATE GANACHE
 200,g,dark baking chocolate
 200,ml,coconut milk
 

@@ -1,0 +1,25 @@
+name=Chocolate mousse with cardamon latte and oranges
+authors=Sonnentor
+original sources=sonnentor.de/rezepte
+version=1.0
+tags=dessert
+servings=2
+duration=50,min
+equipment=oven,baking tin
+
+INGREDIENTS
+
+2,pcs,orange
+2,pcs,avocados
+2,tbsp,honey
+1,tbsp,cacao
+1,tsp,orange zest
+2,tbsp,almond butter
+2,tsp,cardamon latte
+10,g,mint
+
+INSTRUCTIONS
+
+1. Juice oranges.
+2. Add orange juice, avocados, honey, cacoa, caradmom latte powder, orange zest and almond butter to a mixer and turn into a creamy mixture.
+3. Fill 2 glasses with the mixture, decorate with mint and orange pieces.

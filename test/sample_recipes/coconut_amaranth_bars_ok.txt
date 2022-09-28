@@ -1,0 +1,25 @@
+name=Coconut Amaranth Bars
+authors=
+original sources=
+version=1.0
+tags=tracking,trip,outdoor,snack,bar
+servings=20
+equipment=oven,baking tin
+
+INGREDIENTS
+
+110,ml,coconut oil
+250,ml,maplesyrup
+2.5,tbsp,cashew cream
+70,g,dried figs
+60,g,dates
+25,g,sunflower seeds
+25,g,sesame
+70,g,amaranth
+105,g,coconut flakes
+
+INSTRUCTIONS
+
+1. Combine ingredients
+2. Spread even layer on a baking tin, press tight with spoon
+3. Bake in the oven at 180 degrees for 30min

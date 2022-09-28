@@ -1,0 +1,29 @@
+name=Sfouf libanesischer Kurkuma-Griesskuchen
+authors=Sonnentor
+original sources=sonnentor.de/rezepte
+version=1.0
+tags=dessert
+servings=12
+duration=50,min
+equipment=oven,baking tin
+
+INGREDIENTS
+
+2,cup,semolina
+2,cup,flour
+2,cup,milk
+1.5,tbsp,curcuma latte vanilla
+3,tbsp,backing powder
+1,cup,water
+1,cup,sunflower oil
+1,pcs,egg
+20,g,tahini
+5,g,pine seeds
+
+INSTRUCTIONS
+
+1. Preheat oven at 200 degrees upper/lower heat or 180 degrees circulating.
+2. Mix semolina,flour,milk,curcuma and backing powder. Dissolve sugar in water, mix with oil and egg. 
+3. Add wet mixture with dry ingredients. Combine everything into a dough.
+4. Coat rectangular baking tin with tahini, pour dough into the tin and decorate with pine seeds.
+5. Put cake into oven and bake ca. 30 min until golden brown. Let it cool down and cut into squares.

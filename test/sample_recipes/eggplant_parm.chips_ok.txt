@@ -1,0 +1,24 @@
+name=Eggplant parm chips
+authors=Lena Abraham
+original sources= https://www.delish.com/cooking/recipe-ideas/a26279452/eggplant-parm-chips-recipe/
+version=1.0
+tags=snack,eggplant
+servings=4
+equipment=oven,baking tin
+
+INGREDIENTS
+
+1,pcs,eggplant
+2,pinches,salt
+2,tbsp,olive oil
+1/4,cup,grated parmesan cheese
+1,tsp,italien seasoning (thyme;oregano;majoram;basil;parsely)
+1,tsp,garlic powder
+1,pinch,black pepper
+
+INSTRUCTIONS
+
+1. Preheat oven to 350°. Cut eggplant into very thin rounds—on a mandoline, if possible. Lay slices of eggplant on paper towels in an even layer. Season lightly with salt, then let sit for 10 minutes. Wipe any visible moisture off slices with a paper towel and flip. Repeat salting, resting, and drying process once more.
+2. Transfer eggplant slices to a large bowl and toss with oil. Add Parmesan, Italian seasoning, and garlic powder. Season with black pepper and toss until slices are evenly coated.
+3. Arrange eggplant slices in an even layer (make sure none are overlapping!) on a large baking sheet.
+4. Bake until golden and crisp, 16 to 18 minutes. Let cool before serving.
